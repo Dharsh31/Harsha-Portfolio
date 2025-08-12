@@ -1,0 +1,420 @@
+/* =========================
+   style.css — cleaned & organized
+   ========================= */
+
+/* Google font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+:root {
+    --primary: rgb(109, 67, 0);
+    --bg-left: rgb(250, 233, 215);
+    --bg-right: rgb(210, 136, 57);
+    --section-pad-vertical: 60px;
+    --max-width: 1200px;
+    --container-gap: 48px;
+
+    /* Nav variables */
+    --nav-height: 72px;
+    --nav-bg: rgb(210, 136, 57);
+    --nav-shadow: rgba(0, 0, 0, 0.08);
+}
+
+/* Reset + base */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+body {
+    color: #111;
+    background: linear-gradient(to right, var(--bg-left), var(--bg-right));
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+/* =========================
+   Sticky nav — opaque (no blur/transparency)
+   ========================= */
+nav {
+    position: sticky;
+    top: 0;
+    height: var(--nav-height);
+    z-index: 9999;
+    background: var(--nav-bg);
+    box-shadow: 0 6px 14px var(--nav-shadow);
+    display: flex;
+    align-items: center;
+}
+.nav-container {
+    width: 90%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.links {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+.link a {
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+    font-size: 1.05rem;
+    position: relative;
+    padding-bottom: 6px;
+}
+.link a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 3px;
+    background: var(--primary);
+    transition: width 0.22s ease;
+}
+.link:not(.contact-btn) a:hover::after {
+    width: 100%;
+}
+.logo span {
+    color: #000;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+.contact-btn a {
+    border-radius: 20px;
+    padding: 6px 14px;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    display: inline-block;
+}
+.contact-btn a:hover {
+    background: var(--primary);
+    color: #fff;
+}
+.hamburg, .cancel {
+    display: none;
+    cursor: pointer;
+    font-size: 1.6rem;
+    color: #000;
+}
+
+/* Mobile dropdown — opaque */
+.dropdown {
+    transform: translateY(-100%);
+    transition: transform 0.24s ease;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 9998;
+    background: var(--nav-bg);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+.dropdown .dropdown-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem 0;
+}
+.dropdown .dropdown-links a {
+    color: #000;
+    padding: 0.5rem 0;
+    text-decoration: none;
+}
+
+/* Prevent sections from being hidden under nav */
+section,
+#home, #about, #skills, #blogs, #contact {
+    scroll-margin-top: calc(var(--nav-height) + 12px);
+}
+
+/* =========================
+   Section layout base
+   ========================= */
+section {
+    width: 100%;
+    padding: var(--section-pad-vertical) 0;
+}
+.main-container {
+    width: 90%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    gap: var(--container-gap);
+    align-items: center;
+    justify-content: space-between;
+}
+.main-container .image {
+    width: 48%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.main-container .image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+}
+.main-container .content {
+    width: 44%;
+    color: #111;
+}
+
+/* =========================
+   Home
+   ========================= */
+#home {
+    padding: 80px 0;
+    min-height: calc(100vh - 10vh);
+}
+
+/* Updated styling for the home section image */
+#home .image img {
+    width: 300px;
+    height: 300px; /* Setting width and height to be equal creates a perfect square */
+    object-fit: cover;
+    border-radius: 50%; /* Adds a slight curve to the corners */
+    filter: drop-shadow(0 0 15px rgba(11, 11, 11, 0.8)); /* Creates the blue glowing effect */
+    transition: filter 0.3s ease-in-out; /* Smooth transition for hover effect */
+}
+
+#home .image img:hover {
+    filter: drop-shadow(0 0 25px rgb(8, 8, 8)); /* Makes the glow stronger on hover */
+}
+
+.content h1 {
+    font-size: clamp(1.1rem, 2.5vw + 1rem, 2.8rem);
+    margin-bottom: 0.6rem;
+}
+.content h1 span {
+    color: var(--primary);
+    text-shadow: 0 0 10px rgba(145, 92, 9, 0.35);
+}
+.content p {
+    font-size: clamp(0.9rem, 0.9vw + 0.7rem, 1.05rem);
+    margin-top: 1rem;
+}
+.btn button {
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 700;
+    margin-top: 2rem;
+}
+.btn button:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.social-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px; /* controls vertical space between icons row and button */
+}
+
+.social-links {
+    margin-top: 1rem;
+    display: flex;
+    gap: 0.7rem;
+}
+.social-links a {
+    display: inline-flex;
+    width: 3rem;
+    height: 3rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    text-decoration: none;
+}
+.social-links a:hover {
+    background: var(--primary);
+    color: #fff;
+    transform: scale
+}
+/* =========================
+   About — text left, image right
+   ========================= */
+#about {
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.35));
+}
+.about-main .content {
+    width: 52%;
+    text-align: left;
+    order: 1;
+}
+
+.about-main .content h2 {
+    font-size: clamp(1.4rem, 2vw + 1rem, 2.2rem);
+    color: var(--primary);
+    margin-bottom: 0.6rem;
+}
+
+.about-main .image {
+    width: 44%;
+    order: 2;
+}
+.about-main .image img {
+    width: 400px;
+    height: 500px;
+    max-width: 100%; /* Keep this to ensure it scales down on smaller screens */
+    border-radius: 10px;
+     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* =========================
+   Skills — swapped layout (image left, text right)
+   ========================= */
+
+.skills-main .image {
+    width: 44%;
+    order: 1;
+    
+}
+.skills-main .image img {
+    width: 400px;
+    height: 500px;
+    max-width: 100%; /* Keep this to ensure it scales down on smaller screens */
+    border-radius: 10px;
+     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
+}
+.skills-main .content {
+    width: 52%;
+    order: 2;
+}
+.skills-main .content h2 {
+    font-size: clamp(1.4rem, 2vw + 1rem, 2.2rem);
+    color: var(--primary);
+    margin-bottom: 0.6rem;
+}
+.skills-list {
+    margin-top: 0.6rem;
+    padding-left: 1.25rem;
+}
+.skills-list li {
+    margin-bottom: 0.45rem;
+}
+
+/* =========================
+   Blogs
+   ========================= */
+#blogs {
+    padding: 70px 0;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.35));
+}
+.blogs-content h2 {
+    font-size: clamp(1.4rem, 2vw + 1rem, 2.2rem);
+    color: var(--primary);
+    margin-bottom: 0.6rem;
+}
+.blogs-list {
+    padding-left: 1.25rem;
+}
+.blogs-list li {
+    margin-bottom: 0.45rem;
+}
+
+/* =========================
+   Contact
+   ========================= */
+#contact {
+    padding: 70px 0;
+}
+.contact-content h2 {
+    font-size: clamp(1.4rem, 2vw + 1rem, 2.2rem);
+    color: var(--primary);
+    margin-bottom: 0.6rem;
+}
+.contact-link {
+    display: inline-block;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 0.6rem;
+}
+
+/* =========================
+   Responsive
+   ========================= */
+@media (max-width: 884px) {
+    .nav-container {
+        height: 64px;
+    }
+    .links {
+        display: none;
+    }
+    .hamburg {
+        display: block;
+    }
+    .main-container {
+        flex-direction: column-reverse;
+        gap: 1.25rem;
+        padding: 0 1rem;
+    }
+    .main-container .image,
+    .main-container .content {
+        width: 100%;
+    }
+    .main-container .image img {
+        max-width: 360px;
+    }
+    .dropdown {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 80;
+        width: 100%;
+    }
+    .dropdown .dropdown-links {
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.6));
+        padding: 2rem 0;
+    }
+    .dropdown .dropdown-links a {
+        color: #fff;
+        font-size: 1.15rem;
+    }
+}
+
+@media (max-width: 420px) {
+    .content h1 {
+        font-size: 1.3rem;
+    }
+    .btn button {
+        width: 100%;
+        padding: 12px;
+    }
+}
+
+/* =========================
+   Footer
+   ========================= */
+footer {
+    background: rgba(145, 92, 9, 0.35); /* A dark background color */
+    color: #f1f1f1; /* Light text color for contrast */
+    padding: 1rem 0; /* Add some vertical space */
+    text-align: center; /* Center the text */
+    margin-top: 2rem; /* Adds space between the last section and the footer */
+    width: 100%; /* Ensures the footer spans the full width */
+}
+
+.footer-container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 1rem;
+}

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Harsha's Portfolio</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+        /* small caret for any typed element */
+        #typed-text::after {
+            content: "|";
+            animation: blink 0.7s infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <div class="logo" data-aos="zoom-in" data-aos-duration="1000">
+                <span>PORTFOLIO</span>
+            </div>
+
+            <div class="links">
+                <div class="link" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100"><a href="#home">Home</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200"><a href="#about">About</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300"><a href="#skills">Skills</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500"><a href="#blogs">Blogs</a></div>
+                <div class="link contact-btn" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600"><a href="#contact">Contact</a></div>
+            </div>
+
+            <i class="fa-solid fa-bars hamburg" onclick="openMobileMenu()"></i>
+        </div>
+
+        <div class="dropdown" id="mobileMenu" aria-hidden="true">
+            <div class="dropdown-links">
+                <a href="#home" onclick="closeMobileMenu()">Home</a>
+                <a href="#about" onclick="closeMobileMenu()">About</a>
+                <a href="#skills" onclick="closeMobileMenu()">Skills</a>
+                <a href="#blogs" onclick="closeMobileMenu()">Blogs</a>
+                <a href="#contact" onclick="closeMobileMenu()">Contact Us</a>
+                <i class="fa-solid fa-xmark cancel" onclick="closeMobileMenu()"></i>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home">
+        <div class="main-container">
+            <div class="image" data-aos="zoom-in-right" data-aos-duration="2500">
+                <img src="harsha.jpg" alt="Main Image" />
+            </div>
+
+            <div class="content">
+                <h1 data-aos="fade-left" data-aos-duration="1000" data-aos-delay="800">
+    Hey I'm <br><span>Harsha Vardhini</span> <br>
+    I'm a <span id="typed-text"></span>
+</h1>
+
+                <p data-aos="flip-up" data-aos-duration="1000" data-aos-delay="1000">
+                    A Computer Science Engineering student with a deep interest in content, storytelling, and digital communication. From writing SEO blogs to scripting reels, I enjoy turning ideas into words that inspire, inform, or entertain. With 15+ blogs and hands-on work in college promotions, I'm constantly learning how to balance creativity with strategy. I believe in writing with purpose—whether for readers, brands, or communities.
+                </p>
+
+                <div class="social-area" data-aos="flip-down" data-aos-duration="1000" data-aos-delay="1200">
+                    
+                    <div class="btn">
+    <a href="resume.pdf" download="Harsha_Vardhini_Resume.pdf">
+        <button>Download Resume</button>
+    </a>
+</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="main-container about-main">
+            <div class="content about-content" data-aos="fade-right" data-aos-duration="1000">
+                <h2>About Me</h2>
+                <p>
+                    I’m a passionate content writer with a flair for creativity and clarity. My journey began with academic writing, which soon evolved into blogging, copywriting, and social media content.
+                </p>
+                <p>
+                    Through real-world college events and internships, I've crafted content that not only reads well—but also connects with the audience and delivers value.
+                </p>
+            </div>
+            <div class="image about-image" data-aos="zoom-in-left" data-aos-duration="1000">
+                <img src="about.jpg" alt="About Image" />
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="main-container skills-main">
+            <div class="image skills-image" data-aos="fade-right" data-aos-duration="1000">
+                <img src="skills.jpg" alt="Skills Image" />
+            </div>
+            <div class="content skills-content" data-aos="fade-left" data-aos-duration="1000">
+                <h2>My Skills</h2>
+                <p>I bring a mix of technical knowledge and creative communication skills. Here are some key areas I specialize in:</p>
+                <ul class="skills-list">
+                    <li>Blog Writing</li>
+                    <li>Scriptwriting for Reels & Videos</li>
+                    <li>Social Media Content Strategy</li>
+                    <li>Basic HTML, CSS & Web Copywriting</li>
+                    <li>Canva for Visual Content</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="blogs">
+        <div class="main-container blogs-main">
+            <div class="content blogs-content" data-aos="fade-up" data-aos-duration="1000">
+                <h2>Blogs</h2>
+                <ul class="blogs-list">
+                    <li>LinkedIn Personal Branding Stories</li>
+                    <li>Ctrl + Z in Real Life</li>
+                    <li>Breaking Stereotypes in Engineering</li>
+                    <li>Life as a Club Member</li>
+                    <li> The Cons of AI</li>
+                    <li>My First Start</li>
+                </ul>
+            </div>
+            <div class="image blogs-image" data-aos="fade-left" data-aos-duration="1000">
+                <img src="blog.jpg" alt="Projects Image" />
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="main-container contact-main">
+            <div class="content contact-content" data-aos="fade-up" data-aos-duration="1000">
+    <h2>Contact Me</h2>
+    <div class="contact-links-group">
+        <p>Email: <a href="mailto:harshavardhini189@gmail.com">harshavardhini189@gmail.com</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/harsha-vardhini-venkatachalam-409b0228b/" target="_blank">linkedin.com/in/yourprofile</a></p>
+    </div>
+    </div>
+</div>
+    </section>
+
+<footer>
+    <div class="footer-container">
+        <p>&copy; 2025 Harsha Vardhini. All rights reserved.</p>
+    </div>
+</footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+    <script>
+        AOS.init({ offset: 0 });
+
+        /* Mobile menu */
+        function openMobileMenu(){
+            const m = document.getElementById('mobileMenu');
+            if(m) { m.style.transform = 'translateY(0)'; m.setAttribute('aria-hidden','false'); }
+        }
+        function closeMobileMenu(){
+            const m = document.getElementById('mobileMenu');
+            if(m) { m.style.transform = 'translateY(-100%)'; m.setAttribute('aria-hidden','true'); }
+        }
+
+        /* Safe typewriter for Content Writer <-> Script Writer */
+        (function(){
+            const typed = document.getElementById('typed-text');
+            if(!typed) return;
+
+            const roles = ["Content Writer", "Script Writer"];
+            let roleIndex = 0;
+            let charIndex = 0;
+            let forward = true;
+
+            function tick(){
+                const current = roles[roleIndex];
+                if(forward){
+                    if(charIndex < current.length){
+                        charIndex++;
+                        typed.textContent = current.slice(0,charIndex);
+                        setTimeout(tick, 90);
+                    } else {
+                        forward = false;
+                        setTimeout(tick, 1500);
+                    }
+                } else {
+                    if(charIndex > 0){
+                        charIndex--;
+                        typed.textContent = current.slice(0,charIndex);
+                        setTimeout(tick, 45);
+                    } else {
+                        forward = true;
+                        roleIndex = (roleIndex + 1) % roles.length;
+                        setTimeout(tick, 300);
+                    }
+                }
+            }
+            tick();
+        })();
+    </script>
+</body>
+</html>
